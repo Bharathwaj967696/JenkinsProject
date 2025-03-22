@@ -1,1 +1,30 @@
 Jenkins is an open-source automation server used for continuous integration and continuous delivery (CI/CD). It automates building, testing, and deploying software projects, enabling faster and more reliable development workflows.
+#Jenkins code 
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out code from Git...'
+                git branch: 'main', url: 'https://github.com/your-username/your-repo.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building the project...'
+                sh 'echo "Build completed!"'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline succeeded!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
+    }
+}
