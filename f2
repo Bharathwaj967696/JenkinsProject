@@ -1,0 +1,18 @@
+The F2 file is created by Bharathwaj 
+#Code content 
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileAppendExample {
+    public static void main(String[] args) {
+        String filePath = "example.txt"; // Path to the file
+        String content = "Hello, World!\n"; // Content to add
+
+        try (FileWriter writer = new FileWriter(filePath, true)) { // true = append mode
+            writer.write(content); // Write content to the file
+            System.out.println("Content added successfully!");
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+}
